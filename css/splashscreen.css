@@ -1,0 +1,148 @@
+#splashscreen {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    min-height: 100dvh;
+    background: #ffffff;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    z-index: 2147483647;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+#splashscreen.splash-hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.splash-bg-layer {
+    position: absolute;
+    border-radius: 999px;
+    pointer-events: none;
+}
+
+.splash-bg-layer-1 {
+    width: 36vmax;
+    height: 36vmax;
+    background: radial-gradient(circle, rgba(213, 229, 255, 0.95) 0%, rgba(255, 255, 255, 0) 70%);
+    top: -11vmax;
+    left: -7vmax;
+    animation: driftA 4.2s ease-in-out infinite;
+}
+
+.splash-bg-layer-2 {
+    width: 30vmax;
+    height: 30vmax;
+    background: radial-gradient(circle, rgba(193, 217, 255, 0.92) 0%, rgba(255, 255, 255, 0) 72%);
+    right: -8vmax;
+    bottom: -8vmax;
+    animation: driftB 4.8s ease-in-out infinite;
+}
+
+.splash-bg-layer-3 {
+    width: 24vmax;
+    height: 24vmax;
+    background: radial-gradient(circle, rgba(230, 240, 255, 0.96) 0%, rgba(255, 255, 255, 0) 68%);
+    left: 50%;
+    top: 52%;
+    transform: translate(-50%, -50%);
+    animation: breath 2.2s ease-in-out infinite;
+}
+
+.splash-logo-wrap {
+    position: relative;
+    z-index: 2;
+    width: clamp(320px, 80vmin, 600px); 
+    height: clamp(320px, 80vmin, 600px);
+    display: grid;
+    place-items: center;
+}
+
+.splash-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transform-origin: center center;
+    filter: drop-shadow(0 10px 20px rgba(0, 64, 160, 0.2));
+    animation: logoIn 0.65s cubic-bezier(0.2, 0.95, 0.33, 1) both, logoFloat 1.5s ease-in-out 0.7s infinite;
+}
+
+@keyframes logoIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.78);
+    }
+    75% {
+        opacity: 1;
+        transform: scale(1.04);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes logoFloat {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+@keyframes driftA {
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(1.8vmax, 1.4vmax);
+    }
+}
+
+@keyframes driftB {
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(-2vmax, -1.5vmax);
+    }
+}
+
+@keyframes breath {
+    0%,
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.08);
+    }
+}
+
+@media (max-width: 1024px) {
+    .splash-logo-wrap {
+        width: clamp(230px, 46vmin, 400px);
+        height: clamp(230px, 46vmin, 400px);
+    }
+}
+
+@media (max-width: 768px) {
+    .splash-logo-wrap {
+        width: clamp(200px, 56vmin, 340px);
+        height: clamp(200px, 56vmin, 340px);
+    }
+}
+
+@media (max-width: 480px) {
+    .splash-logo-wrap {
+        width: clamp(170px, 64vmin, 280px);
+        height: clamp(170px, 64vmin, 280px);
+    }
+}

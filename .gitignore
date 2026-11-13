@@ -1,0 +1,4 @@
+node_modules/
+.DS_Store
+.ftpquota
+error_log

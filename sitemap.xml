@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url><loc>https://cendiacademico.edu.co/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+    <url><loc>https://cendiacademico.edu.co/bachillerato</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+    <url><loc>https://cendiacademico.edu.co/nosotros</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://cendiacademico.edu.co/docentes</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://cendiacademico.edu.co/personal</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://cendiacademico.edu.co/egresados</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://cendiacademico.edu.co/ingles</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://cendiacademico.edu.co/auxiliarContable</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://cendiacademico.edu.co/auxiliarAdm</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://cendiacademico.edu.co/auxiliarMedico</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://cendiacademico.edu.co/auxiliarSecretariado</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://cendiacademico.edu.co/auxiliarRecursosHumanos</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://cendiacademico.edu.co/auxiliarServicioCliente</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://cendiacademico.edu.co/auxiliarSistemas</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://cendiacademico.edu.co/recepcionHotelera</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://cendiacademico.edu.co/desarrolloSoftware</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://cendiacademico.edu.co/auxiliarFarmaceutico</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://cendiacademico.edu.co/auxiliarSalud</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://cendiacademico.edu.co/trabajeConNosotros</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://cendiacademico.edu.co/TramiteActualizacion</loc><changefreq>yearly</changefreq><priority>0.5</priority></url>
+    <url><loc>https://cendiacademico.edu.co/politicasDeCalidad</loc><changefreq>yearly</changefreq><priority>0.5</priority></url>
+    <url><loc>https://cendiacademico.edu.co/sgsst</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+    <url><loc>https://cendiacademico.edu.co/tics</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+    <url><loc>https://cendiacademico.edu.co/facturacionSalud</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+    <url><loc>https://cendiacademico.edu.co/aseoDomestico</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+    <url><loc>https://cendiacademico.edu.co/manejoNomina</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+    <url><loc>https://cendiacademico.edu.co/manejoClientes</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+    <url><loc>https://cendiacademico.edu.co/soporteVital</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+</urlset>

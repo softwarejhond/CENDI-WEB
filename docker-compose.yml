@@ -1,0 +1,11 @@
+services:
+  web:
+    container_name: cendi-web
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
+    restart: unless-stopped

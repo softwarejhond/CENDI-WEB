@@ -1,0 +1,488 @@
+/* =========================================================
+   CENDI · Asistente virtual tipo mascota robot
+   ========================================================= */
+
+.cendi-bot {
+    position: fixed;
+    right: 20px;
+    left: auto;
+    bottom: 85px;
+    z-index: 2147483000;
+    isolation: isolate;
+    font-family: "Manrope", "Barlow", sans-serif;
+}
+
+/* ---------- Mascota flotante ---------- */
+.cendi-bot__launcher {
+    position: relative;
+    width: 58px;
+    height: 58px;
+    display: grid;
+    place-items: center;
+    padding: 0;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    background: #0a2540;
+    box-shadow: 0 14px 30px rgba(10, 37, 64, 0.35);
+    cursor: pointer;
+    animation: cendiBotFloat 4s ease-in-out infinite;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.cendi-bot__launcher:hover {
+    transform: scale(1.06);
+    box-shadow: 0 22px 48px rgba(10, 37, 64, 0.45);
+}
+
+.cendi-bot__ring {
+    position: absolute;
+    inset: -7px;
+    border-radius: 50%;
+    border: 2px solid rgba(240, 128, 6, 0.65);
+    animation: cendiBotRing 2.4s ease-out infinite;
+    pointer-events: none;
+}
+
+.cendi-bot__mascot {
+    width: 42px;
+    height: 42px;
+}
+
+.cendi-bot__badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 5px;
+    display: grid;
+    place-items: center;
+    border-radius: 999px;
+    background: #f08006;
+    border: 2px solid #fff;
+    color: #fff;
+    font-size: 0.68rem;
+    font-weight: 800;
+    line-height: 1;
+    box-shadow: 0 6px 14px rgba(240, 128, 6, 0.45);
+    animation: cendiBotBadge 2s ease-in-out infinite;
+}
+
+.cendi-bot__eye {
+    transform-origin: center;
+    animation: cendiBotBlink 4.5s infinite;
+}
+
+.cendi-bot__hello {
+    position: absolute;
+    right: 74px;
+    left: auto;
+    bottom: 10px;
+    padding: 0.45rem 0.8rem;
+    border-radius: 12px;
+    background: #fff;
+    color: #0a2540;
+    font-size: 0.78rem;
+    font-weight: 800;
+    white-space: nowrap;
+    box-shadow: 0 12px 26px rgba(10, 37, 64, 0.18);
+    opacity: 0;
+    transform: translateX(-6px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+}
+
+.cendi-bot__hello::before {
+    content: "";
+    position: absolute;
+    right: -5px;
+    left: auto;
+    top: 50%;
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    transform: translateY(-50%) rotate(45deg);
+    border-radius: 2px;
+}
+
+.cendi-bot__hello.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* ---------- Panel de chat ---------- */
+.cendi-bot__panel {
+    position: absolute;
+    right: 0;
+    left: auto;
+    bottom: 72px;
+    width: 360px;
+    max-width: calc(100vw - 32px);
+    height: auto;
+    max-height: min(72vh, 600px);
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border: 1px solid rgba(10, 37, 64, 0.08);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(10, 37, 64, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(18px) scale(0.96);
+    transform-origin: bottom right;
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+}
+
+.cendi-bot.is-open .cendi-bot__panel {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+.cendi-bot__header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    background: #0a2540;
+    color: #fff;
+}
+
+.cendi-bot__avatar {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #fff;
+}
+
+.cendi-bot__avatar svg {
+    width: 34px;
+    height: 34px;
+}
+
+.cendi-bot__identity strong {
+    display: block;
+    font-size: 0.96rem;
+    line-height: 1.2;
+}
+
+.cendi-bot__identity span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.74rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.cendi-bot__status {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #25d366;
+    box-shadow: 0 0 0 3px rgba(37, 211, 102, 0.2);
+}
+
+.cendi-bot__close {
+    margin-left: auto;
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: background 0.25s ease;
+}
+
+.cendi-bot__close:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.cendi-bot__messages {
+    flex: 0 1 auto;
+    max-height: min(48vh, 380px);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 16px;
+    background: #f7f9fc;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(10, 37, 64, 0.25) transparent;
+}
+
+.cendi-bot__welcome {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 4px 14px;
+    text-align: center;
+}
+
+.cendi-bot__welcome-avatar {
+    width: 64px;
+    height: 64px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 10px 24px rgba(10, 37, 64, 0.12);
+}
+
+.cendi-bot__welcome-avatar svg {
+    width: 48px;
+    height: 48px;
+}
+
+.cendi-bot__welcome strong {
+    color: #0a2540;
+    font-size: 1rem;
+}
+
+.cendi-bot__welcome p {
+    max-width: 250px;
+    margin: 0;
+    color: #5b6b7c;
+    font-size: 0.82rem;
+    line-height: 1.45;
+}
+
+.cendi-bot__msg {
+    max-width: 84%;
+    padding: 10px 14px;
+    border-radius: 16px;
+    font-size: 0.88rem;
+    line-height: 1.5;
+    animation: cendiBotMsgIn 0.3s ease both;
+}
+
+.cendi-bot__msg--bot {
+    align-self: flex-start;
+    background: #fff;
+    color: #0a2540;
+    border: 1px solid rgba(10, 37, 64, 0.08);
+    border-bottom-left-radius: 6px;
+    box-shadow: 0 6px 16px rgba(10, 37, 64, 0.06);
+}
+
+.cendi-bot__msg--user {
+    align-self: flex-end;
+    background: #f08006;
+    color: #fff;
+    border-bottom-right-radius: 6px;
+}
+
+.cendi-bot__msg a {
+    color: #f08006;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.cendi-bot__msg--user a {
+    color: #fff;
+}
+
+.cendi-bot__msg--typing {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.cendi-bot__msg--typing span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #b8c2cc;
+    animation: cendiBotTyping 1.2s infinite;
+}
+
+.cendi-bot__msg--typing span:nth-child(2) { animation-delay: 0.15s; }
+.cendi-bot__msg--typing span:nth-child(3) { animation-delay: 0.3s; }
+
+.cendi-bot__quick {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 0 16px 12px;
+    background: #f7f9fc;
+}
+
+.cendi-bot__quick button {
+    padding: 0.45rem 0.75rem;
+    border: 1px solid rgba(240, 128, 6, 0.35);
+    border-radius: 999px;
+    background: #fff;
+    color: #0a2540;
+    font-size: 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.cendi-bot__quick button:hover {
+    background: #f08006;
+    border-color: #f08006;
+    color: #fff;
+}
+
+.cendi-bot__form {
+    display: flex;
+    gap: 8px;
+    padding: 12px 16px;
+    border-top: 1px solid rgba(10, 37, 64, 0.08);
+    background: #fff;
+}
+
+.cendi-bot__form input {
+    flex: 1;
+    height: 44px;
+    padding: 0 16px;
+    border: 1px solid rgba(10, 37, 64, 0.15);
+    border-radius: 999px;
+    font-size: 0.88rem;
+    outline: none;
+    background: #f8fafc;
+}
+
+.cendi-bot__form input:focus {
+    border-color: #f08006;
+    box-shadow: 0 0 0 3px rgba(240, 128, 6, 0.12);
+    background: #fff;
+}
+
+.cendi-bot__form button {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    border: 0;
+    border-radius: 50%;
+    background: #f08006;
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.cendi-bot__form button:hover {
+    background: #cc6a00;
+    transform: scale(1.05);
+}
+
+.cendi-bot__legal {
+    margin: 0;
+    padding: 0 16px 2px;
+    background: #fff;
+    color: #8a97a5;
+    font-size: 0.65rem;
+    text-align: center;
+}
+
+.cendi-bot__credit {
+    margin: 0;
+    padding: 0 16px 10px;
+    background: #fff;
+    color: #8a97a5;
+    font-size: 0.65rem;
+    text-align: center;
+}
+
+.cendi-bot__eagle {
+    font-family: 'Sparose', sans-serif !important;
+    font-size: 0.86rem;
+    font-weight: normal;
+    color: #0a2540 !important;
+    text-decoration: none !important;
+    transition: color 0.25s ease;
+}
+
+.cendi-bot__eagle:hover {
+    color: #f08006 !important;
+}
+
+/* ---------- Animaciones ---------- */
+@keyframes cendiBotFloat {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-6px); }
+}
+
+@keyframes cendiBotRing {
+    0%   { transform: scale(0.92); opacity: 0.8; }
+    70%  { transform: scale(1.35); opacity: 0; }
+    100% { transform: scale(1.35); opacity: 0; }
+}
+
+@keyframes cendiBotBadge {
+    0%, 100% { transform: scale(1); }
+    50%      { transform: scale(1.15); }
+}
+
+@keyframes cendiBotBlink {
+    0%, 92%, 100% { transform: scaleY(1); }
+    95%           { transform: scaleY(0.1); }
+}
+
+@keyframes cendiBotTyping {
+    0%, 80%, 100% { transform: translateY(0); opacity: 0.4; }
+    40%           { transform: translateY(-4px); opacity: 1; }
+}
+
+@keyframes cendiBotMsgIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 575.98px) {
+    .cendi-bot {
+        right: 20px;
+        left: auto;
+        bottom: 85px;
+    }
+
+    .cendi-bot__launcher {
+        width: 58px;
+        height: 58px;
+    }
+
+    .cendi-bot__mascot {
+        width: 42px;
+        height: 42px;
+    }
+
+    .cendi-bot__hello {
+        display: none;
+    }
+
+    .cendi-bot__panel {
+        position: fixed;
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+        width: auto;
+        max-width: none;
+        height: auto;
+        max-height: min(72vh, 560px);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cendi-bot__launcher,
+    .cendi-bot__ring,
+    .cendi-bot__eye,
+    .cendi-bot__msg,
+    .cendi-bot__msg--typing span {
+        animation: none !important;
+        transition: none !important;
+    }
+}

@@ -1,0 +1,104 @@
+
+.floating-button {
+    position: fixed;
+    top: 60vh;
+    right: 15px;
+    z-index: 1000;
+}
+
+.floating-menu {
+    position: absolute;
+    right: 80px; 
+    top: 50%;
+    transform: translateY(-50%);
+    background: #022964;
+    border-radius: 8px;
+    box-shadow: 0 2px 15px rgba(13, 110, 253, 0.3);
+    display: none;
+    z-index: 1100;
+    min-width: 200px;
+    max-height: 60vh; 
+    overflow: auto;
+    padding: 6px 0;
+}
+
+.floating-menu.show {
+    display: block;
+}
+
+/* --- AQUÍ ESTÁN LOS CAMBIOS IMPORTANTES --- */
+
+.floating-menu a {
+    display: flex;             /* Cambiado de 'block' a 'flex' para alinear en línea */
+    align-items: center;       /* Centra verticalmente el icono/imagen con el texto */
+    padding: 12px 24px;
+    color: white;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.floating-menu a:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Estilo para los iconos tipográficos (Boxicons) */
+.floating-menu a i {
+    margin-right: 10px;
+    font-size: 20px;            /* Tamaño uniforme para los iconos */
+    width: 20px;                /* Mismo ancho fijo */
+    text-align: center;
+}
+
+/* Estilo para la IMAGEN del logo Escolink */
+.floating-menu a img.menu-icon {
+    width: 20px;                /* Mismo ancho que los otros iconos */
+    height: 20px;               /* Altura proporcional */
+    object-fit: contain;        /* No deforma la imagen */
+    margin-right: 10px;         /* Mismo margen a la derecha que la etiqueta <i> */
+}
+
+/* --- FIN DE CAMBIOS --- */
+
+.btn-float {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+
+.btn-float:hover {
+    transform: scale(1.1);
+}
+/* ---------- Pulso del botón flotante de WhatsApp ---------- */
+@keyframes waPulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.55), 2px 4px 10px rgba(0, 0, 0, 0.3);
+    }
+    70% {
+        box-shadow: 0 0 0 16px rgba(37, 211, 102, 0), 2px 4px 10px rgba(0, 0, 0, 0.3);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0), 2px 4px 10px rgba(0, 0, 0, 0.3);
+    }
+}
+
+@keyframes waZoom {
+    0%, 100% { transform: scale(1); }
+    50%      { transform: scale(1.06); }
+}
+
+.btn-whatsapp-script {
+    transform-origin: center;
+    animation: waPulse 2.2s ease-out infinite, waZoom 2.2s ease-in-out infinite;
+    will-change: transform, box-shadow;
+}
+
+.btn-whatsapp-script:hover {
+    animation: none;
+    transform: scale(1.1);
+}

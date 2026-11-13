@@ -1,0 +1,101 @@
+/* =========================================================
+   CENDI · Capa de experiencia, 3D y accesibilidad
+   ========================================================= */
+
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+/* Barra de progreso de lectura */
+.ux-scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: #f08006;
+    box-shadow: 0 0 12px rgba(240, 128, 6, 0.6);
+    z-index: 2147483646;
+    pointer-events: none;
+    transition: width 0.1s linear;
+}
+
+/* Enlace para saltar al contenido */
+.ux-skip-link {
+    position: fixed;
+    top: -70px;
+    left: 16px;
+    z-index: 2147483647;
+    padding: 10px 16px;
+    border-radius: 0 0 10px 10px;
+    background: #0a2540;
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: top 0.2s ease;
+}
+
+.ux-skip-link:focus {
+    top: 0;
+    color: #fff;
+    outline: 2px solid #f08006;
+    outline-offset: 2px;
+}
+
+/* Tarjetas con profundidad 3D */
+.ux-tilt {
+    transform-style: preserve-3d;
+}
+
+.ux-tilting {
+    transition: transform 0.12s ease-out !important;
+    will-change: transform;
+}
+
+/* Foco visible accesible */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+    outline: 3px solid #f08006;
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+/* Mejor selección de texto */
+::selection {
+    background: rgba(240, 128, 6, 0.25);
+    color: #0a2540;
+}
+
+/* Imágenes sin salto de layout */
+img {
+    max-width: 100%;
+}
+
+/* Respeta movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+    .ux-scroll-progress,
+    .ux-skip-link {
+        transition: none !important;
+    }
+
+    .ux-tilt {
+        transform: none !important;
+    }
+}
+
+/* Refuerzo 3D en hover (respaldo si el script tarda o no está) */
+@media (hover: hover) and (pointer: fine) {
+    .service:hover,
+    .convenio-card:hover,
+    .about-link:hover,
+    .platform-circle:hover {
+        transform: perspective(900px) rotateX(-2deg) rotateY(2deg) translateY(-8px) scale(1.02);
+    }
+}

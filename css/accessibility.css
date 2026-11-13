@@ -1,0 +1,127 @@
+.accessibility-toolbar {
+    position: fixed;
+    right: 20px;
+    top: 40%;
+    transform: translateY(-30%);
+    z-index: 1000;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    isolation: isolate; /* Asegura que el toolbar se mantenga aislado */
+    mix-blend-mode: normal; /* Evita que se mezcle con el fondo */
+}
+
+.accessibility-toggle {
+    background: var(--brand);
+    color: white;
+    border: none;
+    padding: 12px;
+    width: 45px; /* Ancho fijo para hacerlo cuadrado */
+    height: 45px; /* Alto fijo para hacerlo cuadrado */
+    border-radius: 8px; /* Bordes redondeados pero cuadrado */
+    cursor: pointer;
+    font-size: 20px;
+    transition: all 0.3s ease;
+    display: flex; /* Para centrar el ícono */
+    align-items: center;
+    justify-content: center;
+}
+
+.accessibility-toggle:hover {
+    transform: scale(1.1);
+}
+
+.accessibility-menu {
+    display: none;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    width: 250px;
+}
+
+.accessibility-menu.show {
+    display: block;
+}
+
+.accessibility-menu h3 {
+    color: var(--brand);
+    margin-bottom: 15px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.accessibility-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.accessibility-button {
+    background: none;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.accessibility-button:hover {
+    background: var(--brand);
+    color: white;
+    border-color: var(--brand);
+}
+
+/* Clases de utilidad para las funciones de accesibilidad */
+.high-contrast {
+    filter: invert(1) hue-rotate(180deg);
+}
+
+/* Evitar que el toolbar se invierta en modo alto contraste */
+.high-contrast .accessibility-toolbar {
+    filter: invert(1) hue-rotate(180deg); /* Revierte el efecto de inversión para el toolbar */
+    background: #333 !important; /* Fondo oscuro para mejor visibilidad */
+}
+
+.high-contrast .accessibility-toggle {
+    background: var(--brand) !important;
+    color: white !important;
+}
+
+.high-contrast .accessibility-menu {
+    background: #333 !important;
+    color: white !important;
+}
+
+.high-contrast .accessibility-button {
+    border-color: #555 !important;
+    color: white !important;
+}
+
+.high-contrast .accessibility-button:hover {
+    background: var(--brand) !important;
+}
+
+.dyslexic-font {
+    font-family: 'OpenDyslexic', Arial, sans-serif;
+}
+
+.highlight-links a {
+    background: yellow !important;
+    color: black !important;
+    text-decoration: underline !important;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .accessibility-toolbar {
+        right: 10px;
+    }
+    
+    .accessibility-menu {
+        width: 200px;
+    }
+}

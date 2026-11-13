@@ -1,0 +1,13 @@
+# Local and generated files
+.git
+.gitignore
+.DS_Store
+.ftpquota
+error_log
+node_modules/
+.env
+.env.*
+!.env.example
+Dockerfile*
+docker-compose*.yml
+compose*.yaml

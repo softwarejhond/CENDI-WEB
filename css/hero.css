@@ -1,0 +1,494 @@
+/* =========================================================
+   CENDI · Filmstrip Hero · 3D Image Collection
+   ========================================================= */
+
+.collection-hero {
+    position: relative;
+    padding: 0;
+    min-height: min(90vh, 820px);
+    background: #080711;
+    overflow: hidden;
+}
+
+/* Fondo desenfocado del slide activo */
+.collection-hero__backdrop {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.collection-hero__backdrop-img {
+    position: absolute;
+    inset: -8%;
+    background-size: cover;
+    background-position: center;
+    filter: blur(12px) brightness(0.7) saturate(1.25);
+    transform: scale(1.12);
+    opacity: 0;
+    transition: opacity 0.9s ease;
+}
+
+.collection-hero__backdrop-img.is-active {
+    opacity: 0.9;
+}
+
+.collection-hero__shade {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+        linear-gradient(90deg, rgba(8, 7, 17, 0.96) 0%, rgba(8, 7, 17, 0.72) 42%, rgba(8, 7, 17, 0.18) 100%),
+        linear-gradient(0deg, rgba(8, 7, 17, 0.55) 0%, transparent 45%);
+}
+
+/* Grano cinematográfico */
+.collection-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    pointer-events: none;
+    opacity: 0.06;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.7'/%3E%3C/svg%3E");
+    mix-blend-mode: overlay;
+}
+
+.collection-hero__inner {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 40px;
+    min-height: min(90vh, 820px);
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+/* ---------- Texto ---------- */
+.collection-hero__copy {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 520px;
+}
+
+.collection-hero__slides {
+    position: relative;
+    flex: 1;
+    min-height: 360px;
+}
+
+.collection-hero__slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.55s ease, visibility 0.55s ease;
+}
+
+.collection-hero__slide.is-active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.collection-hero__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    align-self: flex-start;
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    backdrop-filter: blur(8px);
+}
+
+.collection-hero__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--brand);
+    box-shadow: 0 0 0 0 rgba(240, 128, 6, 0.6);
+    animation: collectionPulse 2s ease-out infinite;
+}
+
+@keyframes collectionPulse {
+    0%   { box-shadow: 0 0 0 0 rgba(240, 128, 6, 0.6); }
+    70%  { box-shadow: 0 0 0 10px rgba(240, 128, 6, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(240, 128, 6, 0); }
+}
+
+.collection-hero__title {
+    margin: 1.1rem 0 1rem;
+    color: #fff;
+    font-size: clamp(2.6rem, 5vw, 4.4rem);
+    line-height: 1.02;
+    letter-spacing: -0.04em;
+    text-wrap: balance;
+}
+
+.collection-hero__title span {
+    color: var(--brand);
+    font-family: "Playfair Display", serif;
+    font-style: italic;
+    font-weight: 700;
+}
+
+.collection-hero__text {
+    max-width: 500px;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: clamp(0.98rem, 1.1vw, 1.08rem);
+    line-height: 1.7;
+}
+
+.collection-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 1.8rem;
+}
+
+.collection-hero__actions .uni-btn {
+    padding: 0.9rem 1.6rem;
+}
+
+/* ---------- Navegación ---------- */
+.collection-hero__nav {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-top: 26px;
+}
+
+.collection-hero__arrow {
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+
+.collection-hero__arrow:hover {
+    background: var(--brand);
+    border-color: var(--brand);
+    transform: scale(1.05);
+}
+
+.collection-hero__counter {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+}
+
+.collection-hero__counter strong {
+    color: var(--brand);
+    font-size: 1rem;
+}
+
+.collection-hero__hint {
+    margin-left: auto;
+    color: rgba(255, 255, 255, 0.42);
+    font-size: 0.64rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+/* ---------- Colección 3D ---------- */
+.collection-hero__stage {
+    position: relative;
+    height: 620px;
+    perspective: 1600px;
+    cursor: grab;
+    touch-action: pan-y;
+    user-select: none;
+}
+
+.collection-hero__stage:active {
+    cursor: grabbing;
+}
+
+.collection-hero__deck {
+    position: absolute;
+    inset: 0;
+    transform-style: preserve-3d;
+    transition: transform 0.25s ease;
+}
+
+.collection-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 360px;
+    height: 480px;
+    margin: -240px 0 0 -180px;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #0a2540;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+    transform:
+        translate3d(var(--x, 0px), var(--y, 0px), var(--z, 0px))
+        rotateY(var(--rot, 0deg))
+        scale(var(--scale, 1));
+    opacity: var(--opacity, 1);
+    filter: blur(var(--blur, 0px));
+    transition:
+        transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1),
+        opacity 0.6s ease,
+        filter 0.6s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+    will-change: transform, opacity, filter;
+    cursor: pointer;
+}
+
+.collection-card img {
+    position: relative;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.collection-card__video {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.collection-card__video.is-playing {
+    opacity: 1;
+}
+
+.collection-card__label {
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 34px 16px 14px;
+    color: #fff;
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-align: center;
+    background: linear-gradient(transparent, rgba(8, 7, 17, 0.94));
+}
+
+.collection-card.is-active {
+    border: 2px solid var(--brand);
+    box-shadow:
+        0 35px 70px rgba(0, 0, 0, 0.55),
+        0 0 0 1px rgba(240, 128, 6, 0.25),
+        0 0 50px rgba(240, 128, 6, 0.18);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1199.98px) {
+    .collection-hero__title {
+        font-size: clamp(2.3rem, 4.6vw, 3.6rem);
+    }
+
+    .collection-card {
+        width: 300px;
+        height: 400px;
+        margin: -200px 0 0 -150px;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .collection-hero {
+        min-height: auto;
+    }
+
+    .collection-hero__inner {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        min-height: 0;
+        padding-top: 48px;
+        padding-bottom: 48px;
+    }
+
+    .collection-hero__copy {
+        min-height: 0;
+    }
+
+    .collection-hero__slides {
+        min-height: 330px;
+    }
+
+    .collection-hero__stage {
+        height: 470px;
+    }
+
+    .collection-card {
+        width: 260px;
+        height: 350px;
+        margin: -175px 0 0 -130px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .collection-hero__inner {
+        padding-top: 36px;
+        padding-bottom: 40px;
+    }
+
+    .collection-hero__slides {
+        min-height: 340px;
+    }
+
+    .collection-hero__title {
+        font-size: clamp(1.9rem, 8vw, 2.6rem);
+    }
+
+    .collection-hero__text {
+        font-size: 0.88rem;
+    }
+
+    .collection-hero__actions {
+        flex-direction: column;
+    }
+
+    .collection-hero__actions .uni-btn {
+        width: 100%;
+    }
+
+    .collection-hero__nav {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .collection-hero__hint {
+        flex-basis: 100%;
+        margin-left: 0;
+        padding-top: 4px;
+    }
+
+    .collection-hero__stage {
+        height: 390px;
+    }
+
+    .collection-card {
+        width: 220px;
+        height: 300px;
+        margin: -150px 0 0 -110px;
+    }
+
+    .collection-card__label {
+        font-size: 0.6rem;
+        padding: 26px 10px 10px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .collection-hero__backdrop-img,
+    .collection-hero__slide,
+    .collection-card,
+    .collection-hero__dot {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    .collection-hero__backdrop-img {
+        transform: none !important;
+    }
+}
+
+/* Video de fondo por curso (opcional) */
+.collection-hero__video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    pointer-events: none;
+}
+
+.collection-hero__video.is-playing {
+    opacity: 1;
+}
+
+/* Títulos largos de programas */
+.collection-hero__title--long {
+    font-size: clamp(1.45rem, 2.2vw, 2.2rem);
+    line-height: 1.1;
+}
+
+/* Controles interactivos del video de Bachillerato */
+.collection-card__video-toggle {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    z-index: 4;
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 50%;
+    background: rgba(6, 26, 46, 0.6);
+    color: #fff;
+    font-size: 1.15rem;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+
+.collection-card__video-toggle:hover {
+    background: var(--brand);
+    border-color: var(--brand);
+    transform: scale(1.06);
+}
+
+.collection-card__video-progress {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 4;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.collection-card__video-progress span {
+    display: block;
+    width: 0;
+    height: 100%;
+    background: var(--brand);
+    transition: width 0.15s linear;
+}
+
+.collection-card__video-toggle i {
+    pointer-events: none;
+}

@@ -1,0 +1,164 @@
+/* =========================================================
+   CENDI · Plataformas educativas
+   ========================================================= */
+
+.platforms-section {
+    position: relative;
+    padding: 90px 0;
+    background: #193365;
+    overflow: hidden;
+}
+
+.platforms-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    opacity: 1;
+    pointer-events: none;
+}
+
+.platforms-bg canvas {
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.platforms-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+.platforms-section .intro {
+    max-width: 720px;
+    margin: 0 auto 46px;
+}
+
+.platforms-section .intro h1 {
+    color: #fff;
+}
+
+.platforms-section .intro p {
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.platforms-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+    max-width: 920px;
+    margin: 0 auto;
+}
+
+.platform-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    color: #0a2540;
+    transition: transform 0.3s ease;
+}
+
+.platform-circle {
+    position: relative;
+    width: 126px;
+    height: 126px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+    transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1),
+                box-shadow 0.35s ease,
+                border-color 0.35s ease,
+                background 0.35s ease;
+}
+
+.platform-circle::after {
+    content: "";
+    position: absolute;
+    inset: 8px;
+    border-radius: 50%;
+    border: 1px solid rgba(240, 128, 6, 0.18);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+
+.platform-circle img {
+    width: 62px;
+    height: 62px;
+    object-fit: contain;
+    display: block;
+}
+
+.platform-circle i {
+    font-size: 3rem;
+    color: #f08006;
+}
+
+.platform-item:hover .platform-circle {
+    transform: translateY(-8px) scale(1.05);
+    background: #fff;
+    border-color: rgba(240, 128, 6, 0.45);
+    box-shadow: 0 28px 55px rgba(10, 37, 64, 0.18);
+}
+
+.platform-item:hover .platform-circle::after {
+    opacity: 1;
+}
+
+.platform-item strong {
+    color: #ffffff;
+    font-size: 0.98rem;
+    line-height: 1.2;
+}
+
+.platform-item small {
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 0.78rem;
+}
+
+@media (max-width: 767.98px) {
+    .platforms-section {
+        padding: 64px 0;
+    }
+
+    .platforms-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+        max-width: 520px;
+    }
+
+    .platform-circle {
+        width: 108px;
+        height: 108px;
+    }
+
+    .platform-circle img {
+        width: 52px;
+        height: 52px;
+    }
+
+    .platform-circle i {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 380px) {
+    .platform-circle {
+        width: 92px;
+        height: 92px;
+    }
+
+    .platform-circle img {
+        width: 44px;
+        height: 44px;
+    }
+
+    .platform-circle i {
+        font-size: 2.1rem;
+    }
+}
