@@ -269,10 +269,10 @@ ini_set('display_errors', 1);
                                     <a href="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdFQQlNPdhMFG2x3hpxx-JEog6HyFlB3g2iF_RR5c0n-vX7fQ/viewform?pli=1&authuser=0" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;justify-content:center;padding:10px 20px;background:#28a745;color:#fff;border-radius:6px;text-decoration:none;font-weight:600;min-width:160px;">Inscríbete aquí</a>
                                 </div>
 
-                                <!-- Botones de preinscripción (alineados en una sola fila) -->
-                                <div style="display:flex;gap:12px;justify-content:center;align-items:center;margin:12px 0;flex-wrap:nowrap;white-space:nowrap;">
-                                    <a href="https://site3.q10.com/Preinscripcion?aplentId=d0e037d5-22c3-4082-b55e-d30628819936" target="_blank" style="display:inline-flex;align-items:center;justify-content:center;padding:10px 16px;background:#f08006;color:#fff;border-radius:6px;text-decoration:none;font-weight:600;min-width:160px;">Preinscripción Técnicos</a>
-                                    <a href="https://site2.q10.com/Preinscripcion?aplentId=c866b1f7-b5a4-4146-a6d5-eda3de6bdea9" target="_blank" style="display:inline-flex;align-items:center;justify-content:center;padding:10px 16px;background:#007bff;color:#fff;border-radius:6px;text-decoration:none;font-weight:600;min-width:160px;">Preinscripción Bachillerato</a>
+                                <!-- Botones de preinscripción -->
+                                <div style="display:flex;gap:12px;justify-content:center;align-items:stretch;margin:12px 0;flex-wrap:wrap;">
+                                    <a href="https://site3.q10.com/Preinscripcion?aplentId=d0e037d5-22c3-4082-b55e-d30628819936" target="_blank" style="display:inline-flex;align-items:center;justify-content:center;flex:1 1 180px;min-width:0;padding:12px 20px;background:#f08006;color:#fff;border-radius:6px;text-decoration:none;font-weight:600;line-height:1.25;text-align:center;box-sizing:border-box;">Preinscripción Técnicos</a>
+                                    <a href="https://site2.q10.com/Preinscripcion?aplentId=c866b1f7-b5a4-4146-a6d5-eda3de6bdea9" target="_blank" style="display:inline-flex;align-items:center;justify-content:center;flex:1 1 180px;min-width:0;padding:12px 20px;background:#007bff;color:#fff;border-radius:6px;text-decoration:none;font-weight:600;line-height:1.25;text-align:center;box-sizing:border-box;">Preinscripción Bachillerato</a>
                                 </div>
 
                                 <p style="margin-top:0.5rem;margin-bottom:0.75rem;">Síguenos y visítanos en nuestras redes:</p>

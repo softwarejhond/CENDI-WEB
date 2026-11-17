@@ -1,3 +1,10 @@
+<?php
+require_once __DIR__ . '/../config/seasonal-helper.php';
+
+$christmasActive = cendi_seasonal_should_show(cendi_seasonal_config());
+$christmasLogoPath = __DIR__ . '/../img/logoNavidad.png';
+$logoSrc = ($christmasActive && is_file($christmasLogoPath)) ? 'img/logoNavidad.png' : 'img/logo.png';
+?>
 <style>
     .navbar .navbar-brand {
         flex-shrink: 0 !important;
@@ -26,12 +33,12 @@
 </style>
 
 <nav class="navbar navbar-expand-xxl navbar-light bg-white sticky-top">
+    <?php $garlandVariant = 'navbar'; include __DIR__ . '/../components/animations/christmas-garland.php'; ?>
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="index.php">
-            <?php //include 'components/animations/christmasTree.php'; ?>
                <?php //include 'components/animations/santa.php'; ?>
                
-                <img src="img/logo.png" alt="Logo CENDI" class="navbar-logo">
+                <img src="<?php echo $logoSrc; ?>" alt="Logo CENDI" class="navbar-logo">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -155,6 +162,7 @@
             </div>
         </div>
     </nav>
+    <?php include __DIR__ . '/../components/animations/christmas.php'; ?>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             var dropdowns = document.querySelectorAll('.dropdown-toggle');
