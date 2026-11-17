@@ -1,0 +1,131 @@
+.navbar > .container {
+    position: relative;
+    z-index: 2;
+}
+
+body footer {
+    position: relative;
+    background:
+        radial-gradient(circle at 12% 0%, rgba(220, 38, 38, 0.14), transparent 32%),
+        radial-gradient(circle at 88% 0%, rgba(22, 163, 74, 0.14), transparent 32%),
+        #061a2e;
+}
+
+body footer .footer-top {
+    position: relative;
+    z-index: 2;
+}
+
+body footer h5::after {
+    background: linear-gradient(90deg, #ef4444, #facc15, #22c55e);
+}
+
+body footer a:hover {
+    color: #facc15;
+}
+
+.cendi-garland {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 44px;
+    z-index: 1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.cendi-garland--navbar {
+    top: 100%;
+    bottom: auto;
+}
+
+.cendi-garland__svg {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+.cendi-garland__pine {
+    fill: none;
+    stroke: #166534;
+    stroke-width: 10;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    vector-effect: non-scaling-stroke;
+}
+
+.cendi-garland__pine-highlight {
+    fill: none;
+    stroke: #22c55e;
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    opacity: 0.55;
+    vector-effect: non-scaling-stroke;
+}
+
+.cendi-garland__bulb {
+    position: absolute;
+    width: 10px;
+    height: 13px;
+    margin-left: -5px;
+    border-radius: 50% 50% 45% 45%;
+    background: var(--bulb, #ef4444);
+    box-shadow: 0 0 7px var(--bulb, #ef4444), 0 0 14px rgba(255, 255, 255, 0.25);
+    animation: cendiBulbGlow 2.4s ease-in-out infinite;
+    animation-delay: var(--delay, 0s);
+}
+
+.cendi-garland__bulb::before {
+    content: "";
+    position: absolute;
+    top: -4px;
+    left: 50%;
+    width: 4px;
+    height: 4px;
+    border-radius: 1px;
+    background: #14532d;
+    transform: translateX(-50%);
+}
+
+.cendi-garland__bulb::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 2px;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+@keyframes cendiBulbGlow {
+    0%,
+    100% {
+        opacity: 0.65;
+        filter: brightness(0.9);
+    }
+
+    50% {
+        opacity: 1;
+        filter: brightness(1.25);
+    }
+}
+
+@media (max-width: 768px) {
+    .cendi-garland__bulb {
+        width: 8px;
+        height: 11px;
+        margin-left: -4px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cendi-garland__bulb {
+        animation: none;
+    }
+}

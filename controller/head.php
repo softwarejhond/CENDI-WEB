@@ -185,6 +185,11 @@
    <!-- Font Awesome para íconos de accesibilidad -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="css/accessibility.css?v=1.0">
+    <?php
+    require_once __DIR__ . '/../config/seasonal-helper.php';
+    if (cendi_seasonal_should_show(cendi_seasonal_config())): ?>
+    <link rel="stylesheet" href="<?php echo $base_for_href; ?>css/christmas.css?v=1.0">
+    <?php endif; ?>
 
     <script>
         // Ruta base disponible para scripts que necesiten construir URLs dinámicamente

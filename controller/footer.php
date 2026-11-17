@@ -153,6 +153,7 @@
         }
     }
 </style>
+<?php $garlandVariant = 'footer'; include __DIR__ . '/../components/animations/christmas-garland.php'; ?>
 <div class="footer-top">
     <div class="container">
         <div class="row">
