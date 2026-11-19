@@ -243,7 +243,7 @@ ini_set('display_errors', 1);
                                         
                                         <!-- Imagen cumpleaños -->
                                         <div class="promo-carousel-slide" style="min-width: 100%; box-sizing: border-box;">
-                                                <img src="img/modal/38.png" alt="Promoción CENDI" style="max-width:100%;height:auto;border-radius:8px;display:block;margin:0 auto;" />
+                                                <img src="img/modal/38_1-1.png" alt="Promoción CENDI" style="max-width:100%;height:auto;border-radius:8px;display:block;margin:0 auto;" />
                                         </div>                                       
                                     
                                         <!-- Imagen 1 
@@ -254,7 +254,7 @@ ini_set('display_errors', 1);
                                         <!-- Imagen 2 -->
                                         <div class="promo-carousel-slide" style="min-width: 100%; box-sizing: border-box;">
                                         <a href="https://docs.google.com/forms/d/e/1FAIpQLSdFQQlNPdhMFG2x3hpxx-JEog6HyFlB3g2iF_RR5c0n-vX7fQ/viewform" target="_blank" rel="noopener noreferrer">
-                                            <img src="img/modal/tecnicos.jpeg" alt="Feria de las Flores CENDI" style="max-width:100%;height:auto;border-radius:8px;display:block;margin:0 auto;" />
+                                            <img src="img/modal/tecnicos_1-1.png" alt="Feria de las Flores CENDI" style="max-width:100%;height:auto;border-radius:8px;display:block;margin:0 auto;" />
                                         </a>
                                         </div>
 
